@@ -1,0 +1,25 @@
+{
+  "name": "morg.gg",
+  "version": "1.0.0",
+  "description": "Learning project for NodeJS mentoring using Riot Games API for League of Legends",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viniciusls/morg.gg.git"
+  },
+  "keywords": [
+    "league",
+    "of",
+    "legends",
+    "api"
+  ],
+  "author": "Vinícius Silva <vinicius.ls@live.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viniciusls/morg.gg/issues"
+  },
+  "homepage": "https://github.com/viniciusls/morg.gg#readme"
+}
