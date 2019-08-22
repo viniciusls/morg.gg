@@ -12,7 +12,7 @@ module.exports = (middlewares) => {
         middlewares.forEach(middleware => router.use(middleware));
     }
 
-    router.get('/search/:username', controller.search.bind(controller));
+    router.get('/search/:server/:username', controller.search.bind(controller));
 
     return router;
 };
