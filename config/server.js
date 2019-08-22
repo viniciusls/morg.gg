@@ -11,10 +11,12 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(expressValidator());
-app.use(expressSession({ 
-    secret: process.env.session_secret, 
-    resave: false, 
-    saveUninitialized: false 
+app.use(expressSession({
+    secret: process.env.session_secret,
+    resave: false,
+    saveUninitialized: false
 }));
+
+app.use('/api/hello', require('../routes/hello')());
 
 module.exports = app;
