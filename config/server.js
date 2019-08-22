@@ -18,5 +18,6 @@ app.use(expressSession({
 }));
 
 app.use('/api/hello', require('../routes/hello')());
+app.use('/api/summoners', require('../routes/summoners')());
 
 module.exports = app;
