@@ -59,3 +59,23 @@ typings/
 
 # next.js build output
 .next
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode
+*.code-workspace
+
+# System Files
+.DS_Store
+Thumbs.db
+*.csv
+*.tar.gz
+*.tar.gz.fail
