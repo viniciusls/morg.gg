@@ -7,11 +7,11 @@ class SummonersService {
 
     async search(username, server) {
         try {
-            return await axios.get(`${process.env['riotGamesAPIUrl_' + server]}/lol/summoner/v4/summoners/by-name/${username}`);
-        } catch (e) {
-            console.log(`Error requesting summoners data`);
+            const response = await axios.get(`${process.env['riotGamesAPIUrl_' + server]}/lol/summoner/v4/summoners/by-name/${username}?api_key=${process.env.riotGamesApiKey}`);
 
-            throw new Error(`Error requesting summoners data. Response: ${e}`);
+            return response.data;
+        } catch (e) {
+            throw e;
         }
     }
 }

@@ -16,7 +16,11 @@ class SummonersController {
 
         return await this.summonersServices.search(req.params.username, req.params.server)
             .then(data => res.send(data))
-            .catch(err => res.status(500).send({ error: 500, message: `Cannot retrieve and process summoners data. Result: ${err}` }))
+            .catch(err => {
+                console.log(err);
+
+                return res.status(500).send({error: 500, message: `Cannot retrieve and process summoners data. ${err}`});
+            });
     }
 }
 
