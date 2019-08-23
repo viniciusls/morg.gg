@@ -1,12 +1,12 @@
-const { Summoner } = require('../models/summoner');
+const Summoner = require('../models/summoner');
 
 class SummonersDao {
     constructor() {
-        this.summoner = new Summoner();
+        this.summoner = Summoner;
     }
 
     async findByNameAndServer(name, server) {
-        await this.summoner.findOne({ name, server }).lean();
+        return this.summoner.findOne({ name: name, server: server }).lean();
     }
 
     async save(summonerData) {

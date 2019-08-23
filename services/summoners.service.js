@@ -9,7 +9,7 @@ class SummonersService {
 
     async search(username, server) {
         try {
-            let summoner = await this.summonersDao.findByNameAndServer(name, server);
+            let summoner = await this.summonersDao.findByNameAndServer(username, server);
             console.log(summoner);
 
             if (summoner) {
@@ -18,6 +18,7 @@ class SummonersService {
 
             const response = await axios.get(`${process.env['riotGamesAPIUrl_' + server]}/lol/summoner/v4/summoners/by-name/${username}?api_key=${process.env.riotGamesApiKey}`);
             summoner = response.data;
+            summoner.server = server;
 
             await this.summonersDao.save(summoner);
 
