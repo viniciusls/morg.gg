@@ -1,15 +1,27 @@
 const axios = require('axios');
 
+const { SummonersDao } = require('../dao/summoners.dao');
+
 class SummonersService {
     constructor() {
-
+        this.summonersDao = new SummonersDao();
     }
 
     async search(username, server) {
         try {
-            const response = await axios.get(`${process.env['riotGamesAPIUrl_' + server]}/lol/summoner/v4/summoners/by-name/${username}?api_key=${process.env.riotGamesApiKey}`);
+            let summoner = await this.summonersDao.findByNameAndServer(name, server);
+            console.log(summoner);
 
-            return response.data;
+            if (summoner) {
+                return summoner;
+            }
+
+            const response = await axios.get(`${process.env['riotGamesAPIUrl_' + server]}/lol/summoner/v4/summoners/by-name/${username}?api_key=${process.env.riotGamesApiKey}`);
+            summoner = response.data;
+
+            await this.summonersDao.save(summoner);
+
+            return summoner;
         } catch (e) {
             throw e;
         }
