@@ -10,8 +10,6 @@ class SummonersService {
     async search(username, server) {
         try {
             let summoner = await this.summonersDao.findByNameAndServer(username, server);
-            console.log(summoner);
-
             if (summoner) {
                 return summoner;
             }
