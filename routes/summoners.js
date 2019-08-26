@@ -13,6 +13,7 @@ module.exports = (middlewares) => {
     }
 
     router.get('/search/:server/:username', controller.search.bind(controller));
+    router.get('/summoner/:server/:username', controller.summoner.bind(controller));
 
     return router;
 };
