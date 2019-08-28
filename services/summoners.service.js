@@ -41,8 +41,6 @@ class SummonersService {
 
             await this.summonersDao.save(summoner);
 
-            summoner.push(summoner);
-
             return summoner;
         } catch (e) {
             throw e;
